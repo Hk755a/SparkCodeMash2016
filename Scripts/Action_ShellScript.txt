@@ -1,0 +1,6 @@
+//Type :pa and copy this into the shell, then type ctrl+d to execute it all
+import main._
+val wikiDocuments = HadoopWikiRDDGenerator.createUsing(sc, "file:///Data/WikiPages_BigData.xml")
+val rawWikiPages = WikiCleaner.clean(wikiDocuments)
+val wikiTokens = rawWikiPages.flatMap(wikiText=>wikiText.split("\\W+"))
+

@@ -1,0 +1,6 @@
+sc.makeRDD(1 to Int.MaxValue, 10000).filter(x=>x < 10).sortBy(x=>x).map(x=>x+1).collect
+sc.makeRDD(1 to Int.MaxValue, 10000).filter(x=>x < 10).coalesce(8, true).sortBy(x=>x).map(x=>x+1).collect
+
+
+
+

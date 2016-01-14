@@ -1,0 +1,23 @@
+//Type :pa and copy this into the shell, then type ctrl+d to execute it all
+var count = 0
+val list = 1 to 10
+list.foreach(x=>{
+  count += 1
+  println(s"Count is currently $count")
+})
+println(s"Final count is $count")
+----
+var count = 0
+val rdd = sc.makeRDD(1 to 10, 5)
+rdd.foreach(x=>{
+  count += 1
+  println(s"Count is currently $count")
+})
+println(s"Final count is $count")
+-----
+var count = sc.accumulator(0)
+val rdd = sc.makeRDD(1 to 10, 5)
+rdd.foreach(x=> count += 1)
+println(s"Final count is ${count.value}")
+
+
